@@ -9,9 +9,14 @@ export const RootReducer = (state=initialState,action) => {
      todos:[...state.todos,{id:state.todos.length+1,desc:action.todo,isCompleted:false}]
    } 
 
+  }else if(action.type==="DELETE_TODO"){
+    let rem = state.todos.filter((todo)=>todo.id!==action.id)
+   return {
+     ...state,
+     todos:rem
+
+    }
   }
  
 return state;
-
-
 }

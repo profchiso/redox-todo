@@ -3,20 +3,25 @@ import {connect} from "react-redux"
 
 
 class TodoItems extends Component{
+
+  handleDelete=(id)=>{
+   this.props.deleteTodo(id);
+  }
   render(){
-    console.log(this.props);
+ 
     return(
       <div>
       {
-        this.props.todos.map((todo)=>{
+       this.props.todos.length>0? this.props.todos.map((todo)=>{
         return( <p key={todo.id}>  
-          <input type="checkbox" />
+          <input type="checkbox" id={todo.id} />
             <span> {todo.desc}</span>
             <button id={todo.id}>edit</button>
-            <button id={todo.id}>delete</button>
+            <button onClick={()=>{this.handleDelete(todo.id)}}>delete</button>
         </p>
         )
         })
+        :<p>no todos left</p>
       }
       </div>
     )

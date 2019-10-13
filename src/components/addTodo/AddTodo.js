@@ -17,7 +17,7 @@ class AddTodo extends Component{
     console.log(this.props);
     return(
       <div>
-        <input id="add_todo" onKeyPress={this.handleKeyPress} />
+        <input id="add_todo" />
         <button onClick={this.addTodo}>Add</button>
       </div>
     )
